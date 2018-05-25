@@ -10,39 +10,6 @@
 </ion-header>
 
 <ion-content padding id="bg">
-  <!-- <ion-card>
-    <ion-card-content>
-      <h2>Selamat Datang, <b>{{ nama }}</b></h2>
-    <hr />
-    <h2><b>Temukan slip gaji :</b></h6>
-    <ion-item>
-      <ion-select [(ngModel)]="bulan">
-        <ion-option value="0" [selected]="true">Pilih Bulan</ion-option>
-        <ion-option value="1">Januari</ion-option>
-        <ion-option value="2">Februari</ion-option>
-        <ion-option value="3">Maret</ion-option>
-        <ion-option value="4">April</ion-option>
-        <ion-option value="5">Mei</ion-option>
-        <ion-option value="6">Juni</ion-option>
-        <ion-option value="7">Juli</ion-option>
-        <ion-option value="8">Agustus</ion-option>
-        <ion-option value="9">September</ion-option>
-        <ion-option value="10">Oktober</ion-option>
-        <ion-option value="11">November</ion-option>
-        <ion-option value="12">Desember</ion-option>
-      </ion-select>
-      <ion-select [(ngModel)]="tahun">
-        <ion-option value="0" [selected]="true">Pilih Tahun</ion-option>
-        <ion-option value="2018">2018</ion-option>
-        <ion-option value="2017">2017</ion-option>
-      </ion-select>
-    </ion-item>
-
-  <button ion-button block (click)="onSubmit()" icon-start>
-    <ion-icon name="search"></ion-icon> Temukan
-  </button>
-    </ion-card-content>
-</ion-card> -->
 <ion-refresher (ionRefresh)="doRefresh($event)">
   <ion-refresher-content></ion-refresher-content>
 </ion-refresher>
@@ -85,13 +52,13 @@
       <p>Lembur Holiday</p>
     </ion-col>
     <ion-col col-6>
-      <p id="nominal">: {{ cuti }} hari</p>
-      <p id="nominal">: {{ ijin }} hari</p>
-      <p id="nominal">: {{ bolos }} hari</p>
-      <p id="nominal">: {{ kek_jam_kerja }} jam</p>
-      <p id="nominal">: {{ weekday }} jam</p>
-      <p id="nominal">: {{ weekend }} jam</p>
-      <p id="nominal">: {{ holiday }} jam</p>
+      <p id="nominal">{{ cuti }} hari</p>
+      <p id="nominal">{{ ijin }} hari</p>
+      <p id="nominal">{{ bolos }} hari</p>
+      <p id="nominal">{{ kek_jam_kerja }} jam</p>
+      <p id="nominal">{{ weekday }} jam</p>
+      <p id="nominal">{{ weekend }} jam</p>
+      <p id="nominal">{{ holiday }} jam</p>
     </ion-col>
   </ion-row>
   <ion-row>
