@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ProfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Profil</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentMenu($event)">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="bg">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label stacked><b>Kata Sandi Lama</b></ion-label>
+        <ion-input type="password" [(ngModel)]="old_password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked><b>Kata Sandi Baru</b></ion-label>
+        <ion-input type="password" [(ngModel)]="new_password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked><b>Konfirmasi Kata Sandi Baru</b></ion-label>
+        <ion-input type="password" [(ngModel)]="confirmation_new_password"></ion-input>
+      </ion-item>
+
+      <button ion-button (click)="onSubmit()" block icon-start>
+        <ion-icon name="done-all"></ion-icon>Ubah
+      </button> 
+      
+      <br />
+      <p>Kosongkan <b>semua input,</b> <br /> jika tidak ingin mengubah <b>Kata Sandi</b>.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

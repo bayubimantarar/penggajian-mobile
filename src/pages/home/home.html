@@ -1,0 +1,210 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentMenu($event)">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="bg">
+  <!-- <ion-card>
+    <ion-card-content>
+      <h2>Selamat Datang, <b>{{ nama }}</b></h2>
+    <hr />
+    <h2><b>Temukan slip gaji :</b></h6>
+    <ion-item>
+      <ion-select [(ngModel)]="bulan">
+        <ion-option value="0" [selected]="true">Pilih Bulan</ion-option>
+        <ion-option value="1">Januari</ion-option>
+        <ion-option value="2">Februari</ion-option>
+        <ion-option value="3">Maret</ion-option>
+        <ion-option value="4">April</ion-option>
+        <ion-option value="5">Mei</ion-option>
+        <ion-option value="6">Juni</ion-option>
+        <ion-option value="7">Juli</ion-option>
+        <ion-option value="8">Agustus</ion-option>
+        <ion-option value="9">September</ion-option>
+        <ion-option value="10">Oktober</ion-option>
+        <ion-option value="11">November</ion-option>
+        <ion-option value="12">Desember</ion-option>
+      </ion-select>
+      <ion-select [(ngModel)]="tahun">
+        <ion-option value="0" [selected]="true">Pilih Tahun</ion-option>
+        <ion-option value="2018">2018</ion-option>
+        <ion-option value="2017">2017</ion-option>
+      </ion-select>
+    </ion-item>
+
+  <button ion-button block (click)="onSubmit()" icon-start>
+    <ion-icon name="search"></ion-icon> Temukan
+  </button>
+    </ion-card-content>
+</ion-card> -->
+<ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+<ion-grid>
+  <ion-card>
+    <ion-card-content>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Identitas Karyawan</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>NIK</p>
+      <p>Nama</p>
+      <p>Slip Gaji Periode</p>
+    </ion-col>
+    <ion-col col-6>
+      <p>: {{ nik }}</p>
+      <p>: {{ nama }}</p>
+      <p>: {{ periode }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Kehadiran</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>Cuti</p>
+      <p>Ijin</p>
+      <p>Bolos</p>
+      <p>Kek. Jam Kerja</p>
+      <p>Lembur Weekday</p>
+      <p>Lembur Weekend</p>
+      <p>Lembur Holiday</p>
+    </ion-col>
+    <ion-col col-6>
+      <p id="nominal">: {{ cuti }} hari</p>
+      <p id="nominal">: {{ ijin }} hari</p>
+      <p id="nominal">: {{ bolos }} hari</p>
+      <p id="nominal">: {{ kek_jam_kerja }} jam</p>
+      <p id="nominal">: {{ weekday }} jam</p>
+      <p id="nominal">: {{ weekend }} jam</p>
+      <p id="nominal">: {{ holiday }} jam</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Penghasilan</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>Gaji Dasar</p>
+      <p><u>Tunjangan</u></p>
+      <p>Kinerja</p>
+      <p>Makan</p>
+      <p>Transport</p>
+      <p>BPJS *)</p>
+      <p>BPJS **)</p>
+      <p><br /></p>
+      <p>Total</p>
+    </ion-col>
+    <ion-col col-6>
+      <p id="nominal">{{ gaji_pokok }}</p>
+      <p><br /></p>
+      <p id="nominal">{{ kinerja }}</p>
+      <p id="nominal">{{ makan }}</p>
+      <p id="nominal">{{ transport }}</p>
+      <p id="nominal">{{ bpjs_1 }}</p>
+      <p id="nominal">{{ bpjs_2 }}</p>
+      <p>============= +</p>
+      <p id="nominal">{{ total_penghasilan }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Tunjangan Lain-lain</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>Lembur</p>
+      <p><br /></p>
+      <p>Total</p>
+    </ion-col>
+    <ion-col col-6>
+      <p id="nominal">{{ lembur }}</p>
+      <p>============= +</p>
+      <p id="nominal">{{ lembur }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Potongan</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>Pinjaman</p>
+      <p>Kehadiran</p>
+      <p>Kek. Jam Kerja</p>
+      <p>Premi-JHT *</p>
+      <p>Premi-KES *</p>
+      <p>Premi-JHT **</p>
+      <p>Premi-KES **</p>
+      <p><br /></p>
+      <p>Total Potongan</p>
+    </ion-col>
+    <ion-col col-6>
+      <p id="nominal">{{ pinjaman }}</p>
+      <p id="nominal">{{ kehadiran }}</p>
+      <p id="nominal">{{ kekurangan_jam_kerja }}</p>
+      <p id="nominal">{{ premi_ketenaga_kerjaan_1 }}</p>
+      <p id="nominal">{{ premi_kesehatan_1 }}</p>
+      <p id="nominal">{{ premi_ketenaga_kerjaan_2 }}</p>
+      <p id="nominal">{{ premi_kesehatan_2 }}</p>
+      <p>============= +</p>
+      <p id="nominal">{{ total_potongan }}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <h2><b>Total Keseluruhan</b></h2>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>Total Penghasilan</p>
+      <p>Total Tunjangan</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p>Total Potongan</p>
+      <p><br /></p>
+      <p><br /></p>
+      <p>THP</p>
+      <p>THP Dibulatkan</p>
+    </ion-col>
+    <ion-col col-6>
+      <p id="nominal">{{ total_penghasilan }}</p>
+      <p id="nominal">{{ lembur }}</p>
+      <p>============= +</p>
+      <p id="nominal">{{ total_penghasilan_dan_tunjangan }}</p>
+      <p id="nominal">{{ total_potongan }}</p>
+      <p>============= -</p>
+      <p id="nominal">{{ total_penghasilantunjangan_dan_potongan }}</p>
+      <p id="nominal">{{ total_gaji }}</p>
+      <p id="nominal">{{ total_pembulatan }}</p>
+    </ion-col>
+  </ion-row>
+  <button ion-button (click)="onDownload()" block><ion-icon name="download"></ion-icon>&nbsp; unduh slip gaji</button>
+  </ion-card-content>
+  </ion-card>
+</ion-grid>
+    
+</ion-content>

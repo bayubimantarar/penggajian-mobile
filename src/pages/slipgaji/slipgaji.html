@@ -1,0 +1,152 @@
+<!--
+  Generated template for the SlipgajiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Slip Gaji</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="bg">
+
+  <ion-grid>
+    <ion-card>
+      <ion-card-content>
+    <ion-row>
+      <ion-col col-12>
+        <h6><b>Identitas Karyawan</b></h6>
+        <hr />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p><b>NIK</b></p>
+        <p><b>Nama</b></p>
+        <p><b>Periode</b></p>
+      </ion-col>
+      <ion-col col-6>
+        <p><b>: {{ nik }}</b></p>
+        <p><b>: {{ nama }}</b></p>
+        <p><b>: {{ periode_bulan}} {{ periode_tahun}}</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h6><b>Penghasilan</b></h6>
+        <hr />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p><b>Gaji Dasar</b></p>
+        <p><b><u>Tunjangan</u></b></p>
+        <p><b>a. Kinerja</b></p>
+        <p><b>b. Makan</b></p>
+        <p><b>c. Transport</b></p>
+        <p><b>d. BPJS *)</b></p>
+        <p><b>e. BPJS **)</b></p>
+        <p><br /></p>
+        <p><b>Total</b></p>
+      </ion-col>
+      <ion-col col-6>
+        <p id="nominal"><b>{{ gaji_pokok }}</b></p>
+        <p><br /></p>
+        <p id="nominal"><b>{{ kinerja }}</b></p>
+        <p id="nominal"><b>{{ makan }}</b></p>
+        <p id="nominal"><b>{{ transport }}</b></p>
+        <p id="nominal"><b>{{ bpjs_1 }}</b></p>
+        <p id="nominal"><b>{{ bpjs_2 }}</b></p>
+        <p><b>============= +</b></p>
+        <p id="nominal"><b>{{ total_penghasilan }}</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h6><b>Tunjangan Lain-lain</b></h6>
+        <hr />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p><b>a. Lembur</b></p>
+        <p><br /></p>
+        <p><b>Total</b></p>
+      </ion-col>
+      <ion-col col-6>
+        <p id="nominal"><b>{{ lembur }}</b></p>
+        <p><b>============= +</b></p>
+        <p id="nominal"><b>{{ lembur }}</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h6><b>Potongan</b></h6>
+        <hr />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p><b>a. Pinjaman</b></p>
+        <p><b>b. Kehadiran</b></p>
+        <p><b>c. Kek. Jam Kerja</b></p>
+        <p><b>d. Premi-JHT *)</b></p>
+        <p><b>e. Premi-KES *)</b></p>
+        <p><b>f. Premi-JHT **)</b></p>
+        <p><b>g. Premi-KES **)</b></p>
+        <p><br /></p>
+        <p><b>Total Potongan</b></p>
+      </ion-col>
+      <ion-col col-6>
+        <p id="nominal"><b>{{ pinjaman }}</b></p>
+        <p id="nominal"><b>{{ kehadiran }}</b></p>
+        <p id="nominal"><b>{{ kekurangan_jam_kerja }}</b></p>
+        <p id="nominal"><b>{{ premi_ketenaga_kerjaan_1 }}</b></p>
+        <p id="nominal"><b>{{ premi_kesehatan_1 }}</b></p>
+        <p id="nominal"><b>{{ premi_ketenaga_kerjaan_2 }}</b></p>
+        <p id="nominal"><b>{{ premi_kesehatan_2 }}</b></p>
+        <p><b>============= +</b></p>
+        <p id="nominal"><b>{{ total_potongan }}</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <h6><b>Total Keseluruhan</b></h6>
+        <hr />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <p><b>Total Penghasilan</b></p>
+        <p><b>Total Tunjangan</b></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><b>Total Potongan</b></p>
+        <p><br /></p>
+        <p><br /></p>
+        <p><b>THP</b></p>
+        <p><b>THP Dibulatkan</b></p>
+      </ion-col>
+      <ion-col col-6>
+        <p id="nominal"><b>{{ total_penghasilan }}</b></p>
+        <p id="nominal"><b>{{ lembur }}</b></p>
+        <p><b>============= +</b></p>
+        <p id="nominal"><b>{{ total_penghasilan_dan_tunjangan }}</b></p>
+        <p id="nominal"><b>{{ total_potongan }}</b></p>
+        <p><b>============= -</b></p>
+        <p id="nominal"><b>{{ total_penghasilantunjangan_dan_potongan }}</b></p>
+        <p id="nominal"><b>{{ total_gaji }}</b></p>
+        <p id="nominal"><b>{{ total_pembulatan }}</b></p>
+      </ion-col>
+    </ion-row>
+    <button ion-button (click)="onDownload()" block><ion-icon name="download"></ion-icon>&nbsp; unduh slip gaji</button>
+    </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+</ion-content>

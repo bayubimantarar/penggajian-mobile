@@ -1,0 +1,37 @@
+<ion-content text-center id="bg">
+  <ion-grid id="top">
+
+    <ion-row>
+      <ion-col >
+        <img src="assets/imgs/logo-techno.png" alt="Logo PT. Techno Multi Utama" height="100">
+        <h3><b>Aplikasi Slip Gaji Karyawan</b></h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <!-- Add card content here! -->
+            <ion-item>
+              <!-- <ion-label stacked><b>NIK</b></ion-label> -->
+              <ion-input type="text" [(ngModel)]="nik" placeholder="NIK"></ion-input>
+            </ion-item>
+            <ion-item>
+              <!-- <ion-label stacked><b>Kata Sandi</b></ion-label> -->
+              <ion-input type="password" [(ngModel)]="password" placeholder="Kata Sandi"></ion-input>
+            </ion-item>
+
+            <button ion-button (click)="onLogin()" block icon-start>
+              <ion-icon name="log-in"></ion-icon>Masuk
+            </button>
+
+            <br />
+            <p><b>NIK</b> dan <b>Kata Sandi</b> mohon diisi.<br /> Hubungi <a href="mailto:me@bimantara.web.id">administrator</a> jika tidak bisa login.</p>
+          </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
